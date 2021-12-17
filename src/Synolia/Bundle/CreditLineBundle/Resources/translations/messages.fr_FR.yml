@@ -1,0 +1,12 @@
+credit_line:
+    channel_type.label: 'Encours'
+    settings:
+        labels.label: 'Libellés'
+        short_labels.label: 'Libellés court'
+
+    frontend:
+        balance: 'Solde actuel '
+
+oro:
+    customer:
+        sy_credit_line.label: 'Encours (non utilisé)'

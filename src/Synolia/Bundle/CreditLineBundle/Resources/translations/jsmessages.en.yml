@@ -1,0 +1,7 @@
+synolia:
+    frontend:
+        payment_method:
+            checkout:
+                balance_payment:
+                    unsufficient_balance.label: >
+                        Your credit line does not allow you to place this order.

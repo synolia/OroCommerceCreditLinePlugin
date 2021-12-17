@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: Synolia\Bundle\CreditLineBundle
+        psr4_prefix: Synolia\Bundle\CreditLineBundle

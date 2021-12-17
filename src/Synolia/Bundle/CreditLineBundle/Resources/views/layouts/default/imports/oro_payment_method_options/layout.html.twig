@@ -1,0 +1,11 @@
+{% block _payment_methods_credit_line_widget %}
+    {% set options = {
+        syCreditLine: view.options.sy_credit_line,
+        totalValue: view.options.total_value,
+        paymentMethod: view.options.payment_method
+    } %}
+    <div class="hidden"
+         data-page-component-module="synoliacreditline/js/app/components/credit-line-transition-button-component"
+         data-page-component-options="{{ options|json_encode }}">
+    </div>
+{% endblock %}

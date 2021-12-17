@@ -1,0 +1,4 @@
+dynamic-imports:
+    synoliacreditline:
+        - synoliacreditline/js/app/components/credit-line-checkout-component
+        - synoliacreditline/js/app/components/credit-line-transition-button-component

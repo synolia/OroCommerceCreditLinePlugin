@@ -1,0 +1,72 @@
+parameters:
+    synolia_credit_line.method.identifier_prefix: 'synolia_credit_line'
+
+services:
+    synolia_credit_line.generator.credit_line_config_identifier:
+        parent: oro_integration.generator.prefixed_identifier_generator
+        public: true
+        arguments:
+            - '%synolia_credit_line.method.identifier_prefix%'
+
+    synolia_credit_line.integration.channel:
+        class: Synolia\Bundle\CreditLineBundle\Integration\CreditLineChannelType
+        public: true
+        tags:
+            - { name: oro_integration.channel, type: synolia_credit_line }
+
+    synolia_credit_line.integration.transport:
+        class: Synolia\Bundle\CreditLineBundle\Integration\CreditLineTransport
+        public: false
+        tags:
+            - { name: oro_integration.transport, type: synolia_credit_line, channel_type: synolia_credit_line }
+
+    synolia_credit_line.factory.credit_line_config:
+        class: Synolia\Bundle\CreditLineBundle\Method\Config\Factory\CreditLineConfigFactory
+        public: false
+        arguments:
+            - '@oro_locale.helper.localization'
+            - '@synolia_credit_line.generator.credit_line_config_identifier'
+
+    synolia_credit_line.payment_method.config.provider:
+        class: Synolia\Bundle\CreditLineBundle\Method\Config\Provider\CreditLineConfigProvider
+        arguments:
+            - '@doctrine'
+            - '@logger'
+            - '@synolia_credit_line.factory.credit_line_config'
+
+    synolia_credit_line.factory.method_view.credit_line:
+        class: Synolia\Bundle\CreditLineBundle\Method\View\Factory\CreditLineViewFactory
+        public: false
+        arguments:
+            - '@oro_security.token_accessor'
+            - '@synolia_credit_line.manager.db_customer_credit_line_manager'
+
+    synolia_credit_line.payment_method_view_provider.credit_line:
+        class: Synolia\Bundle\CreditLineBundle\Method\View\Provider\CreditLineViewProvider
+        public: false
+        arguments:
+            - '@synolia_credit_line.payment_method.config.provider'
+            - '@synolia_credit_line.factory.method_view.credit_line'
+        tags:
+            - { name: oro_payment.payment_method_view_provider }
+
+    synolia_credit_line.manager.db_customer_credit_line_manager:
+        class: Synolia\Bundle\CreditLineBundle\Manager\DbCustomerCreditLineManager
+        public: true
+        arguments:
+            - '@oro_entity.doctrine_helper'
+
+    synolia_credit_line.factory.method.credit_line:
+        class: Synolia\Bundle\CreditLineBundle\Method\Factory\CreditLineMethodFactory
+        public: false
+        arguments:
+            - '@synolia_credit_line.manager.db_customer_credit_line_manager'
+
+    synolia_credit_line.payment_method_provider.credit_line:
+        class: Synolia\Bundle\CreditLineBundle\Method\Provider\CreditLineMethodProvider
+        public: false
+        arguments:
+            - '@synolia_credit_line.payment_method.config.provider'
+            - '@synolia_credit_line.factory.method.credit_line'
+        tags:
+            - { name: oro_payment.payment_method_provider }

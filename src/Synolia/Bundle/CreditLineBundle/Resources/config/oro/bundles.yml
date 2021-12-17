@@ -1,0 +1,2 @@
+bundles:
+    - { name: Synolia\Bundle\CreditLineBundle\SynoliaCreditLineBundle, priority: 100 }

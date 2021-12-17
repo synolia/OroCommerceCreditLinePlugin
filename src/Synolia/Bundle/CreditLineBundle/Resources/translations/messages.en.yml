@@ -1,0 +1,12 @@
+credit_line:
+    channel_type.label: 'Credit Line'
+    settings:
+        labels.label: 'Labels'
+        short_labels.label: 'Short Labels'
+
+    frontend:
+        balance: 'Balance'
+
+oro:
+    customer:
+        sy_credit_line.label: 'Credit Line (Not used)'

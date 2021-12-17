@@ -1,0 +1,7 @@
+synolia:
+    frontend:
+        payment_method:
+            checkout:
+                balance_payment:
+                    unsufficient_balance.label: >
+                        Votre encours ne vous permet pas de passer cette commande.
