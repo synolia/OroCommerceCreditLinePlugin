@@ -1,7 +1,7 @@
 [![License](https://img.shields.io/packagist/l/synolia/sylius-akeneo-plugin.svg)](LICENCE)
 [![CI](https://github.com/synolia/OroCommerceCreditLinePlugin/actions/workflows/ci.yml/badge.svg)](https://github.com/synolia/OroCommerceCreditLinePlugin/actions/workflows/ci.yml)
-[![Version](http://poser.pugx.org/synolia/orocommerce-credit-line/v)](https://packagist.org/packages/synolia/orocommerce-credit-line)
-[![Total Downloads](http://poser.pugx.org/synolia/orocommerce-credit-line/downloads)](https://packagist.org/packages/synolia/orocommerce-credit-line)
+[![Version](http://poser.pugx.org/synolia/orocommerce-credit-line-plugin/v)](https://packagist.org/packages/synolia/orocommerce-credit-line-plugin)
+[![Total Downloads](http://poser.pugx.org/synolia/orocommerce-credit-line-plugin/downloads)](https://packagist.org/packages/synolia/orocommerce-credit-line-plugin)
 
 # Oro Credit Line Bundle
 This plugin allows you to have a credit line payment method integration, associated to the customer. 
