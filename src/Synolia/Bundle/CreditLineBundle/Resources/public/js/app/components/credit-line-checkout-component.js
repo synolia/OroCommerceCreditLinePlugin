@@ -19,7 +19,7 @@ define(function(require) {
          * @inheritDoc
          */
         constructor: function CreditLineMethodComponent(options) {
-            CreditLineMethodComponent.__super__.constructor.apply(this, options);
+            CreditLineMethodComponent.__super__.constructor.call(this, options);
         },
 
         /**
