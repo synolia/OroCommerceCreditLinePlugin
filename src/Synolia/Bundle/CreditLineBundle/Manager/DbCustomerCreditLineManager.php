@@ -17,7 +17,7 @@ class DbCustomerCreditLineManager implements CustomerCreditLineManagerInterface
     public function getCreditLineAmount(Customer $customer): float
     {
         // @phpstan-ignore-next-line
-        return $customer->getSyCreditLine();
+        return $customer->getSyCreditLine() ?? 0;
     }
 
     public function subtractCreditLineAmount(Customer $customer, float $amount): bool
