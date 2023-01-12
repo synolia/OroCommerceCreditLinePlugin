@@ -25,7 +25,7 @@ This plugin allows you to have a credit line payment method integration, associa
 
 1. Install the Plugin using Composer:
 ```shell
-composer require synolia/orocommerce-credit-line
+composer require synolia/orocommerce-credit-line-plugin
 ```
 2. Run the Migrations
 ```shell
