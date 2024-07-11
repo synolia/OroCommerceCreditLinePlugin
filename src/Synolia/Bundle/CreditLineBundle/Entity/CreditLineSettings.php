@@ -10,51 +10,23 @@ use Oro\Bundle\LocaleBundle\Entity\LocalizedFallbackValue;
 use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\Validator\Constraints as Assert;
 
-/**
- * @ORM\Entity(repositoryClass="Synolia\Bundle\CreditLineBundle\Entity\Repository\CreditLineSettingsRepository")
- */
+#[ORM\Entity(repositoryClass: \Synolia\Bundle\CreditLineBundle\Entity\Repository\CreditLineSettingsRepository::class)]
 class CreditLineSettings extends Transport
 {
     /**
      * @var Collection|LocalizedFallbackValue[]
-     *
-     * @ORM\ManyToMany(
-     *      targetEntity="Oro\Bundle\LocaleBundle\Entity\LocalizedFallbackValue",
-     *      cascade={"ALL"},
-     *      orphanRemoval=true
-     * )
-     * @ORM\JoinTable(
-     *      name="credit_line_trans_label",
-     *      joinColumns={
-     *          @ORM\JoinColumn(name="transport_id", referencedColumnName="id", onDelete="CASCADE")
-     *      },
-     *      inverseJoinColumns={
-     *          @ORM\JoinColumn(name="localized_value_id", referencedColumnName="id", onDelete="CASCADE", unique=true)
-     *      }
-     * )
-     * @Assert\NotBlank
      */
+    #[Assert\NotBlank]
+    #[ORM\ManyToMany(targetEntity: \Oro\Bundle\LocaleBundle\Entity\LocalizedFallbackValue::class, cascade: ['ALL'], orphanRemoval: true)]
+    #[ORM\JoinTable(name: 'credit_line_trans_label', joinColumns: [new ORM\JoinColumn(name: 'transport_id', referencedColumnName: 'id', onDelete: 'CASCADE')], inverseJoinColumns: [new ORM\JoinColumn(name: 'localized_value_id', referencedColumnName: 'id', onDelete: 'CASCADE', unique: true)])]
     private $labels;
 
     /**
      * @var Collection|LocalizedFallbackValue[]
-     *
-     * @ORM\ManyToMany(
-     *      targetEntity="Oro\Bundle\LocaleBundle\Entity\LocalizedFallbackValue",
-     *      cascade={"ALL"},
-     *      orphanRemoval=true
-     * )
-     * @ORM\JoinTable(
-     *      name="credit_line_short_label",
-     *      joinColumns={
-     *          @ORM\JoinColumn(name="transport_id", referencedColumnName="id", onDelete="CASCADE")
-     *      },
-     *      inverseJoinColumns={
-     *          @ORM\JoinColumn(name="localized_value_id", referencedColumnName="id", onDelete="CASCADE", unique=true)
-     *      }
-     * )
-     * @Assert\NotBlank
      */
+    #[Assert\NotBlank]
+    #[ORM\ManyToMany(targetEntity: \Oro\Bundle\LocaleBundle\Entity\LocalizedFallbackValue::class, cascade: ['ALL'], orphanRemoval: true)]
+    #[ORM\JoinTable(name: 'credit_line_short_label', joinColumns: [new ORM\JoinColumn(name: 'transport_id', referencedColumnName: 'id', onDelete: 'CASCADE')], inverseJoinColumns: [new ORM\JoinColumn(name: 'localized_value_id', referencedColumnName: 'id', onDelete: 'CASCADE', unique: true)])]
     private $shortLabels;
 
     /**
